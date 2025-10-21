@@ -37,7 +37,7 @@ export function Navigation({ onNavigate, heroHeight = 600 }: NavigationProps) {
         className={cn(
           "fixed top-0 z-50 w-full",
           isHomePage
-            ? "transition-all duration-500 " + (isScrolled ? "bg-primary-95 backdrop-blur-md shadow-xl" : "bg-transparent")
+            ? "transition-all duration-500 " + (isScrolled ? "bg-white/25 backdrop-blur-lg shadow-xl" : "bg-transparent")
             : "bg-white shadow-md"
         )}
       >
@@ -46,7 +46,7 @@ export function Navigation({ onNavigate, heroHeight = 600 }: NavigationProps) {
             {/* Logo */}
             <Link to="/" onClick={() => { onNavigate('home'); setIsMobileMenuOpen(false); }} className="h-full w-auto p-0 bg-transparent hover:scale-105 transition-transform flex items-center">
               <img
-                src={isHomePage ? logowhite : logoprimary}
+                src={isHomePage && !isScrolled ? logowhite : logoprimary}
                 alt="Aligned West Chiropractic"
                 className="h-full max-h-15 w-auto"
               />
@@ -65,7 +65,7 @@ export function Navigation({ onNavigate, heroHeight = 600 }: NavigationProps) {
                           "relative transition-colors duration-500 px-3 py-2 font-semibold",
                           isHomePage && !isScrolled
                             ? "text-white hover:text-white/80"
-                            : "text-secondary hover:text-secondary-light"
+                            : "text-default hover:text-primary"
                         )}
                       >
                         {item.text}

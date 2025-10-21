@@ -54,6 +54,13 @@ export interface HeroContentProps {
   onNavigate?: (page: PageType) => void; // 👈 Add this
 }
 
+export interface AboutProps extends VariantProps<typeof featureVariants> {
+  children?: React.ReactNode;
+  className?: string;
+  image?: string;
+  onNavigate?: (page: PageType) => void; // 👈 Add this
+}
+
 export interface Stat {
   value: string
   label: string

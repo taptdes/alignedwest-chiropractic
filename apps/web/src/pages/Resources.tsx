@@ -1,6 +1,6 @@
-import { Card, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Image } from "./ui/image";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Image } from "@/components/ui/image";
 import { GraduationCap, Users, Clock, Heart, Sparkles, Leaf } from "lucide-react";
 
 const achievements = [
@@ -19,9 +19,9 @@ const credentials = [
   "Meditation & Breathwork Guide"
 ];
 
-export default function About({ image }: { image: string }) {
+export default function Resources() {
   return (
-    <section id="about" className="relative w-full bg-white py-16 px-4">
+    <section id="about" className="py-24 bg-gradient-to-b from-amber-50/20 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <div className="flex items-center justify-center space-x-3 mb-6">
@@ -32,8 +32,8 @@ export default function About({ image }: { image: string }) {
           </div>
           
           <h2 className="text-4xl lg:text-5xl text-primary mb-6 tracking-tight">
-            Meet Dr. Weston
-            <span className="block text-amber-700 italic">Sorenson</span>
+            Meet Dr. Luna
+            <span className="block text-amber-700 italic">Martinez</span>
           </h2>
           
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -45,7 +45,7 @@ export default function About({ image }: { image: string }) {
           <div className="relative">
             <div className="aspect-[4/5] rounded-3xl overflow-hidden warm-shadow">
               <Image
-                src={image}
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=600&q=80"
                 alt="Dr. Luna Martinez in her serene practice space"
                 className="w-full h-full object-cover"
               />

@@ -121,7 +121,7 @@
   }
 
   .navlink {
-    @apply text-blue-600 font-medium text-lg no-underline hover:text-green-500;
+    @apply font-medium text-lg no-underline;
     font-family: var(--font-lora);
   }
 }
