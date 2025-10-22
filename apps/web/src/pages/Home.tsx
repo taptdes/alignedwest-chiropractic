@@ -1,10 +1,5 @@
 import type { PageType } from "@/components/ui/navigation/types";
-import {
-  Hero,
-} from "@/lib/blocks/Hero";
-import { HeroContent } from "@/lib/blocks/HeroContent";
 import About from "@/components/about";
-import bgImage from "@/assets/bg-home-hero.webp";
 import headshot from "@/assets/headshot.webp";
 import HomeHero from "@/lib/sections/HomeHero";
 import {Services} from "@/lib/blocks/Services";
@@ -12,12 +7,16 @@ import {Details} from "@/lib/blocks/Details";
 import {Testimonials} from "@/lib/blocks/Testimonials";
 import {Contact} from "@/lib/blocks/Contact";
 
-export default function Home() {
+export interface HomeProps {
+  onNavigate: (page: PageType) => void;
+}
+
+export default function Home({ onNavigate }: HomeProps) {
   return (
     <div className="flex relative size-full bg-white">
       <div className="flex flex-col items-center relative size-full">
         <div className="box-border content-stretch flex flex-col items-center justify-start pb-0 pt-0 px-0 relative size-full">
-          <HomeHero />
+          <HomeHero onNavigate={onNavigate} />
           <About
             image={headshot}
           />

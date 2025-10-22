@@ -4,9 +4,13 @@ import {
 import { HeroContent } from "@/lib/blocks/HeroContent";
 import bgImage from "@/assets/bg-home-hero.webp";
 import HeroBG from "@/components/ui/wave/wave";
+import type { PageType } from "@/components/ui/navigation/types";
 
+interface HomeHeroProps {
+  onNavigate: (page: PageType) => void;
+}
 
-export default function HomeHero() {
+export default function HomeHero({ onNavigate }: HomeHeroProps) {
   return (
           <Hero
           variant="fullscreen"
@@ -14,12 +18,12 @@ export default function HomeHero() {
             bg={{ images: { sm: bgImage, md: bgImage, lg: bgImage }, alt: "Chiropractic care background", fixed: true }}
             overlays={["gradient"]}
             className="relative size-full w-full h-full"
-            onNavigate={(page) => console.log("Navigate to:", page)}
+            onNavigate={onNavigate}
           >
             <HeroContent
               title={`Experience Healing,\nReimagined`}
               subheader={`Personalized chiropractic care blending mind,\nbody, and soul for holistic wellness.`}
-              onNavigate={(page) => console.log("Navigate to:", page)}
+              onNavigate={onNavigate}
             />
              <div className="absolute inset-0 z-0">
                     <HeroBG />
