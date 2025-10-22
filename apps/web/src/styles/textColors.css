@@ -1,6 +1,13 @@
 @import "./colors.css";
 
 @layer utilities {
+  .text-default { color: var(--color-neutral-700); }
+  .text-header { color: var(--color-neutral-900, #424040); }
+  .text-body { color: var(--color-neutral-600); }
+  .text-subtle { color: var(--color-neutral-500); }
+  .text-disabled { color: var(--color-neutral-400); }
+  .text-contrast { color: var(--color-contrast); }
+  
   .text-primary { color: var(--color-primary); }
   .text-primary-light { color: var(--color-primary-light); }
   .text-primary-dark { color: var(--color-primary-dark); }
