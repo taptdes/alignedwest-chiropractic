@@ -14,11 +14,13 @@ export default defineConfig({
       "@/lib": path.resolve(__dirname, "src/lib"),
       "@/hooks": path.resolve(__dirname, "src/hooks"),
       "@/styles": path.resolve(__dirname, "src/styles"),
+      "@/assets": path.resolve(__dirname, "src/assets"),
       buffer: "buffer",
     },
   },
   define: {
     global: {},
   },
+  envDir: path.resolve(__dirname),
   assetsInclude: ["**/*.md"],
 })

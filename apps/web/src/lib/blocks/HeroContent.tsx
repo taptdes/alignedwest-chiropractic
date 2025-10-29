@@ -1,9 +1,13 @@
 'use client'
 
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import type { HeroContent } from '@/lib/types';
-import type { PageType } from '@/components/ui/navigation/types';
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
+import type { HeroContent } from '@/lib/types'
+import type { PageType } from '@/components/ui/navigation/types'
+
+interface HeroContentProps extends HeroContent {
+  onBookNow?: () => void;
+}
 
 export function HeroContent({
   title,
@@ -11,7 +15,8 @@ export function HeroContent({
   children,
   className,
   onNavigate,
-}: HeroContent) {
+  onBookNow
+}: HeroContentProps) {
   return (
     <div className={cn("box-border z-10 content-stretch flex flex-col gap-8 items-center justify-center p-0 relative w-full h-screen", className)}>
       <h1 className="text-7xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight whitespace-pre-line text-white">
@@ -29,13 +34,24 @@ export function HeroContent({
         {onNavigate && (
           <Button
             size="lg"
-            onClick={() => onNavigate("book" as PageType)}
-            className="bg-white/20 text-white hover:bg-white/30 text-base font-semibold px-8 py-4 rounded-lg backdrop-blur-sm shadow-md"
+            onClick={onBookNow}
+            className="bg-white/20 text-white hover:bg-white/30 text-lg font-semibold px-12 py-6 rounded-lg backdrop-blur-sm shadow-lg"
           >
             Book Now
           </Button>
+          
+        )}
+        {onNavigate && (
+          <Button
+            size="lg"
+            onClick={() => onNavigate("about" as PageType)}
+            className="bg-transparent text-white hover:bg-white/30 outline-2 outline-white/30 outline-solid -outline-offset-2 text-lg font-semibold px-12 py-6 rounded-lg backdrop-blur-sm shadow-lg"
+          >
+            Learn More
+          </Button>
+          
         )}
       </div>
     </div>
-  );
+  )
 }

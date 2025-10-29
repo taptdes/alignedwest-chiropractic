@@ -1,23 +1,23 @@
-import { Card, CardContent } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Image } from "./ui/image";
-import { GraduationCap, Users, Clock, Heart, Sparkles, Leaf } from "lucide-react";
+import { Card, CardContent } from "./ui/card"
+import { Badge } from "./ui/badge"
+import { Image } from "./ui/image"
+import { GraduationCap, Users, Clock, Heart, Sparkles, Leaf } from "lucide-react"
 
 const achievements = [
-  { icon: Users, value: "3,000+", label: "Souls Nurtured" },
-  { icon: Clock, value: "18+", label: "Years of Devotion" },
+  { icon: Users, value: "1,000+", label: "Souls Nurtured" },
+  { icon: Clock, value: "15+", label: "Years of Devotion" },
   { icon: Heart, value: "99%", label: "Love & Satisfaction" },
-  { icon: Sparkles, value: "8", label: "Healing Modalities" }
-];
+  { icon: Sparkles, value: "4", label: "Healing Modalities" }
+]
 
 const credentials = [
   "Doctor of Chiropractic (D.C.)",
-  "Certified Wellness Practitioner", 
+  "Licensed Massage Therapist",
+  "Certified Wellness Practitioner",
   "Mindful Movement Specialist",
-  "Energy Healing Certification",
-  "Holistic Nutrition Guidance",
-  "Meditation & Breathwork Guide"
-];
+  "NAET Therapy Certification",
+  "Soul Alignment Guide"
+]
 
 export default function About({ image }: { image: string }) {
   return (
@@ -30,23 +30,23 @@ export default function About({ image }: { image: string }) {
               Your Wellness Guide
             </span>
           </div>
-          
+
           <h2 className="text-4xl lg:text-5xl text-primary mb-6 tracking-tight">
             Meet Dr. Weston
             <span className="block text-amber-700 italic">Sorenson</span>
           </h2>
-          
+
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A devoted healer whose gentle hands and compassionate heart guide you toward your most radiant self.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden warm-shadow">
+          <div className="relative h-full">
+            <div className="size-full rounded-3xl overflow-hidden warm-shadow">
               <Image
                 src={image}
-                alt="Dr. Luna Martinez in her serene practice space"
+                alt="Dr. Weston Sorenson"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -64,16 +64,13 @@ export default function About({ image }: { image: string }) {
                   A Sacred Partnership in Healing
                 </h3>
               </div>
-              
+
               <p className="text-lg leading-relaxed text-muted-foreground">
-                For nearly two decades, Dr. Luna has walked alongside thousands on their journey to wellness, 
-                blending the ancient wisdom of healing touch with modern understanding of the body's innate capacity for restoration.
+                For over fifteen years, Dr. Weston Sorenson has walked alongside thousands on their journey to wellness—blending the ancient wisdom of healing touch with modern understanding of the body’s innate ability to restore itself.
               </p>
-              
+
               <p className="text-base leading-relaxed text-muted-foreground">
-                Her approach transcends the traditional boundaries of chiropractic care, embracing the whole person—
-                body, mind, and spirit. Each session is a sacred dance between healer and soul, 
-                creating space for your body to remember its natural state of harmony.
+                His approach transcends the boundaries of traditional chiropractic care, honoring the whole person—body, mind, and spirit. Each session becomes a sacred exchange between healer and soul, creating space for your body to remember its natural state of balance and harmony.
               </p>
             </div>
 
@@ -95,7 +92,7 @@ export default function About({ image }: { image: string }) {
               <Sparkles className="w-6 h-6 text-amber-600 mb-4" />
               <h4 className="text-lg text-primary mb-3">A Personal Message</h4>
               <blockquote className="text-lg italic leading-relaxed text-muted-foreground">
-                "True healing happens when we honor the body's wisdom and create space for its natural intelligence to shine. 
+                "True healing happens when we honor the body's wisdom and create space for its natural intelligence to shine.
                 My role is simply to be a gentle guide, helping you rediscover the vibrant health that is your birthright."
               </blockquote>
               <p className="text-sm text-amber-700 mt-4 font-medium">— Dr. Luna Martinez</p>
@@ -123,13 +120,16 @@ export default function About({ image }: { image: string }) {
         <div className="flex justify-center mt-16">
           <div className="flex items-center space-x-3">
             <div className="w-2 h-2 bg-amber-300 rounded-full"></div>
-            <div className="w-12 h-0.5 bg-gradient-to-r from-amber-300 to-amber-500"></div>
+            <div className="w-12 h-0.5 bg-linear-to-r from-amber-300 to-amber-500"></div>
             <Heart className="w-6 h-6 text-amber-600" />
-            <div className="w-12 h-0.5 bg-gradient-to-l from-amber-300 to-amber-500"></div>
+            <div className="w-12 h-0.5 bg-linear-to-l from-amber-300 to-amber-500"></div>
             <div className="w-2 h-2 bg-amber-300 rounded-full"></div>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
+
+
+

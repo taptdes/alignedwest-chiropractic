@@ -1,11 +1,11 @@
 'use client'
 
-import React from 'react';
-import { heroVariants, HERO_CONTENT_STYLES, OVERLAY_STYLES, HERO_ALIGNMENT_STYLES, HERO_LAYOUT_STYLES, GALLERY_GRID_CLASSES } from '@/lib/index';
-import type { HeroProps, OverlayVariant } from '@/lib/index';
-import { BackgroundImages } from '@/lib/blocks/BG';
-import { cn } from '@/lib/utils';
-import { Image } from '@/components/ui/image';
+import React from 'react'
+import { heroVariants, HERO_CONTENT_STYLES, OVERLAY_STYLES, HERO_ALIGNMENT_STYLES, HERO_LAYOUT_STYLES, GALLERY_GRID_CLASSES } from '@/lib/index'
+import type { HeroProps, OverlayVariant } from '@/lib/index'
+import { BackgroundImages } from '@/lib/blocks/BG'
+import { cn } from '@/lib/utils'
+import { Image } from '@/components/ui/image'
 
 export const Hero: React.FC<HeroProps> = ({
   variant = 'default',
@@ -59,8 +59,8 @@ export const Hero: React.FC<HeroProps> = ({
           )}
 
           {/* Buttons */}
-{content.buttons && content.buttons.length > 0 && (
-              <div className={HERO_CONTENT_STYLES.buttons}>
+          {content.buttons && content.buttons.length > 0 && (
+            <div className={HERO_CONTENT_STYLES.buttons}>
               {content.buttons.map((btn, idx) => (
                 <button key={idx} onClick={btn.onClick} className={HERO_CONTENT_STYLES.button}>
                   {btn.text}
@@ -86,5 +86,5 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Full-bleed children (wave separators, etc.) */}
       {children && <div className="absolute inset-x-0 w-full h-screen">{children}</div>}
     </section>
-  );
-};
+  )
+}

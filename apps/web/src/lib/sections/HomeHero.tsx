@@ -1,16 +1,18 @@
 import {
   Hero,
-} from "@/lib/blocks/Hero";
-import { HeroContent } from "@/lib/blocks/HeroContent";
-import bgImage from "@/assets/bg-home-hero.webp";
-import HeroBG from "@/components/ui/wave/wave";
-import type { PageType } from "@/components/ui/navigation/types";
+} from "@/lib/blocks/Hero"
+import { HeroContent } from "@/lib/blocks/HeroContent"
+import bgImage from "@/assets/bg-home-hero.webp"
+import HeroBG from "@/components/ui/wave/wave"
+import type { PageType } from "@/components/ui/navigation/types"
 
 interface HomeHeroProps {
   onNavigate: (page: PageType) => void;
+    onBookNow?: () => void;
+
 }
 
-export default function HomeHero({ onNavigate }: HomeHeroProps) {
+export default function HomeHero({ onNavigate, onBookNow }: HomeHeroProps) {
   return (
           <Hero
           variant="fullscreen"
@@ -24,6 +26,7 @@ export default function HomeHero({ onNavigate }: HomeHeroProps) {
               title={`Experience Healing,\nReimagined`}
               subheader={`Personalized chiropractic care blending mind,\nbody, and soul for holistic wellness.`}
               onNavigate={onNavigate}
+                      onBookNow={onBookNow}
             />
              <div className="absolute inset-0 z-0">
                     <HeroBG />
@@ -31,5 +34,5 @@ export default function HomeHero({ onNavigate }: HomeHeroProps) {
           </Hero>
         
    
-  );
+  )
 }

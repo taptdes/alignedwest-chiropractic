@@ -46,9 +46,10 @@
   .bg-tangerine-900 { background-color: var(--color-tangerine-900); }
   .bg-tangerine-1000 { background-color: var(--color-tangerine-1000); }
 
+    .bg-amber-50 { background-color: var(--color-amber-50, #fffbf0); }
   .bg-amber-100 { background-color: var(--color-amber-100); }
   .bg-amber-200 { background-color: var(--color-amber-200); }
-  .bg-amber-300 { background-color: var(--color-amber-300); }
+  .bg-amber-300 { background-color: var(--color-amber-300, #f8cd72); }
   .bg-amber-400 { background-color: var(--color-amber-400); }
   .bg-amber-500 { background-color: var(--color-amber-500); }
   .bg-amber-600 { background-color: var(--color-amber-600); }
@@ -162,4 +163,9 @@
   .bg-fuchsia-light { background-color: var(--color-fuchsia-light); }
   .bg-teal-light { background-color: var(--color-teal-light); }
   .bg-cherry-light { background-color: var(--color-cherry-light); }
+
+  .bg-linear-to-r.from-amber-300.to-amber-500 {background: linear-gradient(to right, #fcd34d, #f59e0b);}
+    .bg-linear-to-l.from-amber-300.to-amber-500 {background: linear-gradient(to left, #fcd34d, #f59e0b);}
+    .bg-amber-50\/70 { background-color: var(--color-amber-50, #fffbf0 70%); }
+
 }
