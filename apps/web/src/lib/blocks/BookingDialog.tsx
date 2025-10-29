@@ -74,7 +74,7 @@ const closedDates = [
 
 // Generate time slots based on treatment duration
 const generateTimeSlots = (duration: number, date: string) => {
-  const slots: { value: string; label: string; available: boolean }[] = []
+  const slots: { value: string; label: string; available: boolean, sublabel: string; }[] = []
   const bookedTimes = mockBookedSlots[date] || []
   
   // Operating hours: 9 AM to 6 PM
@@ -121,10 +121,11 @@ const generateTimeSlots = (duration: number, date: string) => {
       const sublabel = timeLabels[Math.min(labelIndex, timeLabels.length - 1)]
       
       slots.push({
-        value: timeValue,
-        label: `${displayHour}:${displayMinute} ${period}`,
-        available: isAvailable
-      })
+  value: timeValue,
+  label: `${displayHour}:${displayMinute} ${period}`,
+  sublabel,  // ← add this
+  available: isAvailable
+})
     }
   }
   
@@ -273,7 +274,7 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
       <DialogContent className="max-w-3xl h-[85vh] p-0 gap-0 rounded-3xl border-0 warm-shadow flex flex-col overflow-hidden">
         {/* Fixed Header */}
         <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm border-b border-amber-200/50 px-6 pt-6 pb-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-linear-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-4">
             <CalendarIcon className="w-8 h-8 text-amber-700" />
           </div>
           <h2 className="text-3xl text-center text-primary tracking-wide mb-6">
@@ -287,9 +288,9 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
                     s < step
-                      ? "bg-gradient-to-br from-emerald-500 to-emerald-600 text-white"
+                      ? "bg-linear-to-br from-emerald-500 to-emerald-600 text-white"
                       : s === step
-                      ? "bg-gradient-to-br from-amber-600 to-amber-700 text-white"
+                      ? "bg-linear-to-br from-amber-600 to-amber-700 text-white"
                       : "bg-amber-100 text-amber-700"
                   }`}
                 >
@@ -441,28 +442,30 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
                       </div>
                     ) : (
                       <div className="grid grid-cols-2 gap-3 max-h-60 overflow-y-auto p-1">
-                        {availableTimeSlots.map((slot) => (
-                          <button
-                            key={slot.value}
-                            onClick={() => slot.available && handleInputChange("time", slot.value)}
-                            disabled={!slot.available}
-                            className={`p-3 rounded-xl border-2 transition-all duration-300 text-left ${
-                              formData.time === slot.value
-                                ? "border-amber-600 bg-amber-50/50 warm-shadow"
-                                : slot.available
-                                ? "border-amber-200/50 hover:border-amber-400 hover:bg-amber-50/30"
-                                : "border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed"
-                            }`}
-                          >
-                            <p className={`text-sm ${slot.available ? 'text-primary' : 'text-gray-400'}`}>
-                              {slot.label}
-                            </p>
-                            {!slot.available && (
-                              <p className="text-xs text-red-600 mt-1">Booked</p>
-                            )}
-                          </button>
-                        ))}
-                      </div>
+  {availableTimeSlots.map((slot) => (
+    <button
+      key={slot.value}
+      onClick={() => slot.available && handleInputChange("time", slot.value)}
+      disabled={!slot.available}
+      className={`p-3 rounded-xl border-2 transition-all duration-300 text-left ${
+        formData.time === slot.value
+          ? "border-amber-600 bg-amber-50/50 warm-shadow"
+          : slot.available
+          ? "border-amber-200/50 hover:border-amber-400 hover:bg-amber-50/30"
+          : "border-gray-200 bg-gray-50 opacity-50 cursor-not-allowed"
+      }`}
+    >
+      <p className={`text-sm ${slot.available ? 'text-primary' : 'text-gray-400'}`}>
+        {slot.label}
+      </p>
+      {/* Render sublabel */}
+      <p className="text-xs text-muted-foreground">{slot.sublabel}</p>
+      {!slot.available && (
+        <p className="text-xs text-red-600 mt-1">Booked</p>
+      )}
+    </button>
+  ))}
+</div>
                     )}
                   </div>
                 )}
@@ -550,7 +553,7 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
           {step === 4 && (
             <div className="space-y-6">
               <div className="text-center space-y-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-20 h-20 bg-linear-to-br from-emerald-100 to-emerald-200 rounded-full flex items-center justify-center mx-auto">
                   <CheckCircle2 className="w-10 h-10 text-emerald-700" />
                 </div>
                 <div className="space-y-2">
@@ -561,7 +564,7 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-rose-50/40 rounded-2xl p-6 space-y-4">
+              <div className="bg-linear-to-br from-amber-50/50 via-orange-50/30 to-rose-50/40 rounded-2xl p-6 space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-start justify-between pb-3 border-b border-amber-200/50">
                     <div>
@@ -640,7 +643,7 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
             {step < 4 ? (
               <Button
                 onClick={nextStep}
-                className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 ml-auto"
+                className="bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300 ml-auto"
               >
                 {step === 3 ? "Review Booking" : "Continue"}
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -648,7 +651,7 @@ export default function BookingDialog({ isOpen, onClose, preselectedService }: B
             ) : (
               <Button
                 onClick={handleSubmit}
-                className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="w-full bg-linear-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 rounded-full px-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <CheckCircle2 className="w-5 h-5 mr-2" />
                 Confirm My Journey

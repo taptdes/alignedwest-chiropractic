@@ -1,7 +1,7 @@
-import { Image } from "@/components/ui/image";
-import { AnimatedSection } from "./AnimatedSection";
-import { motion } from "framer-motion";
-import { Leaf, Heart, Star, Users } from "lucide-react";
+import { Image } from "@/components/ui/image"
+import { AnimatedSection } from "./AnimatedSection"
+import { motion } from "framer-motion"
+import { Leaf, Heart, Star, Users } from "lucide-react"
 
 const features = [
   {
@@ -24,7 +24,7 @@ const features = [
     title: "Personalized Care",
     description: "Every treatment is customized to meet your unique needs and preferences."
   }
-];
+]
 
 export function Details() {
   return (
@@ -52,7 +52,7 @@ export function Details() {
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-2 rounded-lg">
+                    <div className="bg-linear-to-r from-purple-100 to-pink-100 p-2 rounded-lg">
                       <feature.icon className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
@@ -94,5 +94,5 @@ export function Details() {
         </div>
       </div>
     </section>
-  );
+  )
 }

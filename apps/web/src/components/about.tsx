@@ -88,7 +88,7 @@ export default function About({ image }: { image: string }) {
               </div>
             </div>
 
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-100">
+            <div className="relative p-8 rounded-2xl bg-linear-to-br from-amber-50 to-orange-50 border border-amber-100">
               <Sparkles className="w-6 h-6 text-amber-600 mb-4" />
               <h4 className="text-lg text-primary mb-3">A Personal Message</h4>
               <blockquote className="text-lg italic leading-relaxed text-muted-foreground">
@@ -104,7 +104,7 @@ export default function About({ image }: { image: string }) {
           {achievements.map((achievement, index) => (
             <Card key={index} className="text-center border-0 warm-shadow bg-white/60 backdrop-blur-sm rounded-2xl">
               <CardContent className="pt-8 pb-6">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 mx-auto bg-linear-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mb-6">
                   <achievement.icon className="w-8 h-8 text-amber-700" />
                 </div>
                 <div className="text-3xl text-primary mb-2 tracking-tight">

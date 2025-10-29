@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { AnimatedSection } from "./AnimatedSection";
-import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { AnimatedSection } from "./AnimatedSection"
+import { motion } from "framer-motion"
+import { Phone, Mail, MapPin, Clock } from "lucide-react"
 
 export function Contact() {
   return (
@@ -70,7 +70,7 @@ export function Contact() {
                   </div>
                   <Textarea placeholder="Special requests or preferences..." rows={3} />
                   <Button 
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700" 
+                    className="w-full bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700" 
                     size="lg"
                   >
                     Book Appointment
@@ -144,7 +144,7 @@ export function Contact() {
             </AnimatedSection>
             
             <AnimatedSection delay={0.6}>
-              <Card className="bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+              <Card className="bg-linear-to-r from-purple-50 to-pink-50 border-purple-200">
                 <CardContent className="p-6">
                   <h3 className="font-medium mb-2">First Visit?</h3>
                   <p className="text-sm text-muted-foreground mb-4">
@@ -163,5 +163,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  );
+  )
 }

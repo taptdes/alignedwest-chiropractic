@@ -74,7 +74,7 @@ export default function About() {
                 I believe true wellness is found in harmony—between the physical, emotional, and spiritual—and I'm here to guide you on that path.
               </p>
               
-              <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent"></div>
+              <div className="h-px bg-linear-to-r from-transparent via-amber-300 to-transparent"></div>
               </div>
 
             <div className="space-y-4">
@@ -120,10 +120,10 @@ export default function About() {
 
         {/* Why Choose Section */}
         <div className="mb-20">
-          <div className="relative p-8 md:p-12 rounded-3xl bg-gradient-to-br from-amber-50 via-orange-50/50 to-rose-50/30 border border-amber-100 warm-shadow">
+          <div className="relative p-8 md:p-12 rounded-3xl bg-linear-to-br from-amber-50 via-orange-50/50 to-rose-50/30 border border-amber-100 warm-shadow">
             <div className="max-w-3xl mx-auto">
               <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-linear-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center">
                   <Compass className="w-8 h-8 text-amber-700" />
                 </div>
               </div>
@@ -162,7 +162,7 @@ export default function About() {
           {achievements.map((achievement, index) => (
             <Card key={index} className="text-center border-0 warm-shadow bg-white/60 backdrop-blur-sm rounded-2xl">
               <CardContent className="pt-8 pb-6">
-                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 h-16 mx-auto bg-linear-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mb-6">
                   <achievement.icon className="w-8 h-8 text-amber-700" />
                 </div>
                 <div className="text-3xl text-primary mb-2 tracking-tight">
