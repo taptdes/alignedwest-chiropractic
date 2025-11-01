@@ -70,21 +70,22 @@ export function Details() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
+                className="z-10"
               >
                 <Image 
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Peaceful spa interior with natural elements"
-                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                  className="w-full h-96 z-10 object-cover rounded-lg shadow-lg"
                 />
               </motion.div>
               <motion.div 
-                className="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg"
+                className="absolute -bottom-6 -left-6 z-30 bg-white p-6 rounded-lg shadow-lg"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="text-center">
+                <div className="text-center z-30">
                   <div className="text-2xl font-medium text-primary">15+</div>
                   <div className="text-sm text-muted-foreground">Years of Excellence</div>
                 </div>

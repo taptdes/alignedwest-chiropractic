@@ -5,7 +5,7 @@ import { CardHeader, CardContent, CardTitle, CardDescription } from "@/component
 import { Button } from "@/components/ui/button"
 import { PopularBadge as Badge } from "@/components/ui/badge/PopularBadge"
 import { Image } from "@/components/ui/image"
-import { getColorClasses } from "@/lib/blocks/Services"
+import { getColorClasses } from "@/lib/blocks/cards/styles"
 import { Activity, Star, CheckCircle, Clock, ArrowRight } from "lucide-react"
 
 const meta: Meta<typeof SmartCard> = {

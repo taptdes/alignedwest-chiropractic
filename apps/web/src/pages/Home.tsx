@@ -3,13 +3,14 @@ import type { PageType } from "@/components/ui/navigation/types"
 import About from "@/components/about"
 import headshot from "@/assets/headshot.webp"
 import HomeHero from "@/lib/sections/HomeHero"
-import Services from "@/lib/blocks/Services"
+import Services from "@/lib/sections/Services"
 import { Details } from "@/lib/blocks/Details"
-import { Testimonials } from "@/lib/blocks/Testimonials"
+import { Testimonials } from "@/lib/sections/Testimonials"
 import { Contact } from "@/lib/blocks/Contact"
 import BookingDialog from "@/lib/blocks/BookingDialog"
 import { Toaster } from "@/components/ui/sonner"
-import { services } from "@/lib/blocks/Services"
+import FAQ from "@/lib/sections/FAQ"
+import Info from "@/lib/sections/Info"
 
 export interface HomeProps {
   onNavigate: (page: PageType) => void;
@@ -43,6 +44,8 @@ export default function Home({ onNavigate }: HomeProps) {
           <Details />
           <Testimonials />
           <Contact />
+          <FAQ />
+          <Info />
 
           {/* ✅ Booking dialog opens when user clicks "Book Now" */}
           <BookingDialog

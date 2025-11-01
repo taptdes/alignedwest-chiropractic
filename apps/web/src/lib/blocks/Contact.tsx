@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { AnimatedSection } from "./AnimatedSection"
 import { motion } from "framer-motion"
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 
 export function Contact() {
   return (
@@ -25,7 +25,7 @@ export function Contact() {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
-              <Card>
+              <Card className="flex flex-col">
                 <CardHeader>
                   <CardTitle>Schedule Your Appointment</CardTitle>
                 </CardHeader>
@@ -116,31 +116,6 @@ export function Contact() {
                   </CardContent>
                 </Card>
               </motion.div>
-            </AnimatedSection>
-            
-            <AnimatedSection delay={0.4}>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <Clock className="w-5 h-5 text-purple-600" />
-                    <div className="font-medium">Hours of Operation</div>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span>9:00 AM - 8:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span>8:00 AM - 7:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>10:00 AM - 6:00 PM</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </AnimatedSection>
             
             <AnimatedSection delay={0.6}>
