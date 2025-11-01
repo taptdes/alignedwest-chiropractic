@@ -173,9 +173,9 @@ export default function HeroBG() {
   return (
     <section className="flex relative w-full h-full overflow-hidden justify-center items-center">
       <div className="flex absolute top-0 left-0 w-full h-full inset-0 z-1">
-        <div className="gradient absolute inset-0 z-2 opacity-80 animate-gradientShift" />
+        <div className="gradient absolute inset-0 z-2 opacity-80" />
         <div className="flex absolute top-0 left-0 w-full h-full inset-0 z-1 pointer-events-none">
-          <img src={bgSand} alt="background" className="fixed z-0 opacity-70 inset-0 size-full object-cover" />
+           <img src={bgSand} alt="sand background" className="fixed z-0 opacity-70 inset-0 size-full object-cover" />
           <canvas ref={canvasRef} className="w-full h-full" />
         </div>
       </div>

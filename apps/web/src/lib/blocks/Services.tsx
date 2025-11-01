@@ -1,102 +1,212 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Image } from "@/components/ui/image";
-import { AnimatedSection } from "./AnimatedSection";
-import { motion } from "framer-motion";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import {
+  Activity,
+  Heart,
+  Zap,
+  Target,
+  Shield,
+  Users,
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Star,
+  Leaf,
+  Sparkles,
+  type LucideIcon as LucideIconType
+} from 'lucide-react'
 
-const services = [
+import { PopularBadge as Badge } from '@/components/ui/badge/PopularBadge'
+import { Image } from '@/components/ui/image'
+import img1 from "@/assets/bg-home-hero3.webp"
+
+export const LucideIcon = [
+  Activity,
+  Heart,
+  Zap,
+  Target,
+  Shield,
+  Users,
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Star,
+  Leaf,
+  Sparkles
+]
+
+export interface Service {
+  id: string;
+  icon: LucideIconType;          // your imported icon component
+  title: string;
+  description: string;
+  popular?: boolean;
+  duration: string;
+  features: string[];
+  color: string;
+  price: string;
+  image?: string;
+}
+
+export const services: Service[] = [
   {
-    title: "Signature Massage Therapy",
-    description: "Experience deep relaxation with our customized massage treatments designed to release tension and restore balance.",
-    duration: "60-90 minutes",
-    price: "From $120",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    popular: true
+    id: "adjustments",
+    icon: Activity,
+    title: "Spinal Adjustments",
+    description: "Precise manual adjustments to restore proper spinal alignment and reduce pain using gentle, effective techniques.",
+    popular: true,
+    duration: "30 min",
+    features: ["Manual therapy", "Gentle techniques", "Immediate relief"],
+    color: "blue",
+    price: "$95",
+    image: img1
   },
   {
-    title: "Rejuvenating Facial Treatments",
-    description: "Revitalize your skin with our advanced facial therapies using premium organic products and cutting-edge techniques.",
-    duration: "75 minutes",
-    price: "From $95",
-    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    id: "soul",
+    icon: Heart,
+    title: "Soul Alignment",
+    description: "Specialized care for athletes and active individuals to recover faster and prevent future injuries.",
+    popular: false,
+    duration: "40 min",
+    features: ["Performance optimization", "Injury prevention", "Recovery planning"],
+    color: "red",
+    price: "$50",
+    image: img1
+
   },
   {
-    title: "Aromatherapy & Body Wraps",
-    description: "Indulge in our therapeutic body treatments that detoxify, hydrate, and nourish your skin from head to toe.",
-    duration: "90 minutes",
-    price: "From $150",
-    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+    id: "naet",
+    icon: Zap,
+    title: "NAET",
+    description: "Comprehensive rehabilitation programs designed to strengthen muscles and restore full function.",
+    popular: false,
+    duration: "40 min",
+    features: ["Exercise programs", "Strength training", "Mobility work"],
+    color: "purple",
+    price: "$50",
+    image: img1
+
   },
-  {
-    title: "Couples Retreat Package",
-    description: "Share a blissful experience with your loved one in our private couples suite with synchronized treatments.",
-    duration: "2 hours",
-    price: "From $280",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    title: "Wellness Day Package",
-    description: "A complete day of pampering including massage, facial, body treatment, and access to our wellness facilities.",
-    duration: "Full day",
-    price: "From $350",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    title: "Hot Stone Therapy",
-    description: "Melt away stress with our therapeutic hot stone massage that penetrates deep into muscle tissue.",
-    duration: "90 minutes",
-    price: "From $140",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+]
+
+export const getColorClasses = (color: string) => {
+  const colors = {
+    blue: "text-blue-600 bg-blue-50",
+    red: "text-red-600 bg-red-50",
+    purple: "text-purple-600 bg-purple-50",
+    green: "text-green-600 bg-green-50",
+    amber: "text-amber-600 bg-amber-50",
+    indigo: "text-indigo-600 bg-indigo-50"
   }
-];
+  return colors[color as keyof typeof colors] || "text-gray-600 bg-gray-50"
+}
 
-export function Services() {
+export default function Services(props?: Partial<Service>) {
   return (
-    <section id="about" className="relative w-full bg-white py-16 px-4">
+    <section id="services" className="relative w-full py-20 bg-white" style={{ zIndex: 20 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-medium mb-4">Our Signature Services</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover our carefully curated selection of treatments designed to nurture your well-being and restore your natural radiance.
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl mb-6 text-gray-900">
+            Comprehensive Chiropractic Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We offer a full range of chiropractic servicess and wellness services
+            designed to address your specific needs and help you achieve optimal health.
           </p>
-        </AnimatedSection>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon
+            const colorClasses = getColorClasses(service.color)
+
+            return (
+              <Card
+                key={service.id} // use id instead of index for keys
+                className="relative group hover:shadow-lg transition-all duration-300 border-0 shadow-md overflow-visible"
               >
-                <Card className="overflow-hidden hover:shadow-lg transition-shadow h-full">
-                  <div className="relative">
-                    <Image 
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-48 object-cover"
-                    />
-                    {service.popular && (
-                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600">
-                        Most Popular
-                      </Badge>
-                    )}
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-muted-foreground">{service.duration}</span>
-                      <span className="font-medium text-primary">{service.price}</span>
+                {service.popular && <Badge className="z-30" label="Popular" />}
+
+                {service.image && (
+                  <div className="relative z-20">
+                    <div className="aspect-[16/12] rounded-t-xl overflow-hidden">
+                      <Image
+                        src={service.image} // ✅ corrected
+                        alt={service.title}  // ✅ corrected
+                        className="w-full h-full object-cover rounded-none group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </AnimatedSection>
-          ))}
+
+                    {/* Icon overlay */}
+                    <div className="absolute bottom-4 right-4 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <IconComponent className="w-6 h-6 text-amber-700" />
+                    </div>
+                  </div>
+                )}
+
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`p-3 rounded-lg ${colorClasses}`}>
+                      <IconComponent className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                    </div>
+                  </div>
+                  <CardDescription className="text-gray-600 line-clamp-2 leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                  <div className="space-y-3 w-full mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-2 text-sm text-gray-600">
+                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex w-full items-center justify-between mb-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4" />
+                      <span>{service.duration}</span>
+                    </div>
+                    <div className="text-2xl text-amber-700 tracking-tight">
+                      {service.price}
+                    </div>
+                  </div>
+                  <div className="flex gap-4 mt-auto pb-6">
+                      <Button
+                        variant="default"
+                        className="flex-1 hover:bg-primary hover:text-white transition-colors"
+                        onClick={() => console.log("Book clicked")}
+                      >
+                        Book
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex-1 hover:bg-primary hover:text-white transition-colors flex items-center justify-center"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+            )
+          })}
+        </div>
+
+        <div className="text-center mt-16">
+          <Button size="lg" className="px-8">
+            Schedule a Consultation
+          </Button>
         </div>
       </div>
     </section>
-  );
+  )
 }
+
