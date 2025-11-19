@@ -8,12 +8,12 @@
     45deg,
     #f86a54 0%,
     #f89938 25%,
-    #fbf49c 50%,
+    #dfcc84 50%,
     #6dc497 75%,
     #016699 100%
   );
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradient-shift 15s ease infinite;
   opacity: 0.8;
   z-index: 2;
 }
