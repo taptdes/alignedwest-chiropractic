@@ -1,3 +1,11 @@
+## TL;DR
+
+- Use Conventional Commits
+- Format: `<type>(scope): summary`
+- Keep summary ≤ 50 chars
+- Use `feat`, `fix`, `chore`, etc.
+- Use `!` or `BREAKING CHANGE:` for breaking changes
+
 ````markdown
 # 📝 Commit Message Guidelines
 
@@ -111,6 +119,27 @@ BREAKING CHANGE: Authentication now uses Auth0 only.
    ```
 
    Git will open the template in your default text editor for editing.
+
+---
+
+## When to Use Scopes
+
+Scopes help identify which part of the codebase the commit affects.
+
+Examples:
+
+- `feat(api): add appointment endpoint`
+- `fix(forms): correct validation error`
+- `refactor(utils): simplify date formatter`
+
+---
+
+## Common Mistakes to Avoid
+
+❌ `fixed bug in code` → Not using a valid type  
+❌ `feat: adds new API` → Should be imperative: _add_, not _adds_  
+❌ `feat(api)` → Missing summary  
+❌ `update stuff` → Too vague
 
 ---
 
