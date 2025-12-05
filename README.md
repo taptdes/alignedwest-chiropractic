@@ -18,12 +18,8 @@ alignedwest-chiropractic/
 ├── apps/
 │   ├── web/        # Frontend (React + Vite + Tailwind)
 │   ├── backend/    # Backend API (Node/Express)
-│   └── cms/        # Sanity.io Studio
+│   └── cms/        # In the future
 │
-├── packages/       # Shared packages (utils, types, components)
-├── .env            # Local development environment variables
-├── .env.staging    # Staging environment variables
-├── .env.production # Production environment variables
 └── README.md
 ```
 
@@ -43,7 +39,7 @@ alignedwest-chiropractic/
 
 1. Clone the Repo
    ```
-   git clone https://github.com/YOUR_USERNAME/alignedwest-chiropractic.git
+   git clone https://github.com/taptdes/alignedwest-chiropractic.git
    cd alignedwest-chiropractic
    pnpm install
    ```
