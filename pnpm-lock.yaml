@@ -30,7 +30,7 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       firebase:
-        specifier: ^12.3.0
+        specifier: ^12.5.0
         version: 12.5.0
       firebase-admin:
         specifier: ^11.9.0
