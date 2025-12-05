@@ -27,6 +27,13 @@
     "test": "vitest run",
     "check": "pnpm lint && pnpm test && pnpm build"
   },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.1.12",
+      "@vitejs/plugin-react": "5.0.3",
+      "@tailwindcss/vite": "4.1.13"
+    }
+  },
   "lint-staged": {
     "*.{js,ts,tsx,jsx}": [
       "eslint --fix"
