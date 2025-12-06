@@ -5,6 +5,7 @@ import { HeroContent } from "@/lib/blocks/HeroContent"
 import bgImage from "@/assets/bg-home-hero.webp"
 import HeroBG from "@/components/ui/wave/wave"
 import type { PageType } from "@/components/ui/navigation/types"
+import { WaveSeparator } from "@/components/ui/separator/waveSeparator"
 
 interface HomeHeroProps {
   onNavigate: (page: PageType) => void;
@@ -31,6 +32,8 @@ export default function HomeHero({ onNavigate, onBookNow }: HomeHeroProps) {
              <div className="absolute inset-0 z-0">
                     <HeroBG />
                   </div>
+                  <WaveSeparator />
+                  
           </Hero>
         
    
